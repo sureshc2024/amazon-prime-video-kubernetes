@@ -2,33 +2,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: starbucks-deployment
+  name: amazon-prime-video-deployment
 spec:
   replicas: 2
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: starbucks
+      app: amazon-prime-video
   template:
     metadata:
       labels:
-        app: starbucks
+        app: amazon-prime-video
     spec:
       containers:
-      - name: starbucks-container
-        image: aseemakram19/starbucks
+      - name: amazon-prime-video-container
+        image: aseemakram19/amazon-prime-video
         ports:
         - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: starbucks-service
+  name: amazon-prime-video-service
 spec:
   type: LoadBalancer
   selector:
-    app: starbucks
+    app: amazon-prime-video
   ports:
   - port: 80
     targetPort: 3000
