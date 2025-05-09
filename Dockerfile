@@ -7,11 +7,11 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package.json package-lock.json /app/
 
-# Install dependencies
-RUN npm install .
-
 # Copy the entire codebase to the working directory
 COPY . /app/
+
+# Install dependencies
+RUN npm install 
 
 # Expose the port your container app
 EXPOSE 3000    
