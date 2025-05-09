@@ -1,10 +1,8 @@
 # Use Node.js Alpine base image
 FROM node:22-alpine
 
-RUN mkdir -P /home/app
-
 # Create and set the working directory inside the container
-WORKDIR /home/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package.json package-lock.json /app/
@@ -13,7 +11,7 @@ COPY package.json package-lock.json /app/
 RUN npm install
 
 # Copy the entire codebase to the working directory
-COPY . /home/app/
+COPY . /app/
 
 # Expose the port your container app
 EXPOSE 3000    
